@@ -1,20 +1,83 @@
+
 package com.example.energo_project.model;
 
+import java.util.List;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+
 public class User {
 
+    @SerializedName("login")
+    @Expose
+    private String login;
+    @SerializedName("firstname")
+    @Expose
+    private String firstname;
+    @SerializedName("lastname")
+    @Expose
+    private String lastname;
+    @SerializedName("parol")
+    @Expose
+    private String parol;
+    @SerializedName("admin")
+    @Expose
+    private Boolean admin;
+    @SerializedName("flats")
+    @Expose
+    private List<Object> flats = null;
     @SerializedName("id")
     @Expose
     private Integer id;
-    @SerializedName("name")
-    @Expose
-    private String name;
-    @SerializedName("pass")
-    @Expose
-    private String pass;
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getParol() {
+        return parol;
+    }
+
+    public void setParol(String parol) {
+        this.parol = parol;
+    }
+
+    public Boolean getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        this.admin = admin;
+    }
+
+    public List<Object> getFlats() {
+        return flats;
+    }
+
+    public void setFlats(List<Object> flats) {
+        this.flats = flats;
+    }
 
     public Integer getId() {
         return id;
@@ -22,22 +85,6 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
     }
 
 }

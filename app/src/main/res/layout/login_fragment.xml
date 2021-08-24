@@ -32,7 +32,6 @@
         <!-- Snippet from "Add text fields" section goes here. -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/login_text_input"
-            android:textColorHint=""
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.TextInputLayout"

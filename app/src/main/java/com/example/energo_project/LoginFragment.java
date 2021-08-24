@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 
 
 import com.example.energo_project.Navigation.NavigationHost;
@@ -47,9 +45,8 @@ public class LoginFragment extends Fragment {
                     passwordTextInput.setError(getString(R.string.error_password));
                 } else {
                     passwordTextInput.setError(null); // Clear the error
-                    NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
-                    navController.navigate(R.id.flatsActivity);
-                    //((NavigationHost) getActivity()).navigateTo(new FlatsActivity(), false); // Navigate to the next Fragment
+
+                    ((NavigationHost) getActivity()).navigateTo(new FlatsFragment(), false); // Navigate to the next Fragment
                 }
             }
         });
