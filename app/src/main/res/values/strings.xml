@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Energo_Project</string>
-    <string name="hint_username">Username</string>
-    <string name="hint_password">Password</string>
+    <string name="hint_email">E-mail</string>
+    <string name="hint_password">Пароль</string>
     <string name="button_next">Найти</string>
     <string name="form_town">Город</string>
     <string name="form_street">Улица</string>
