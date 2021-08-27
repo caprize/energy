@@ -19,6 +19,8 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.concurrent.TimeUnit;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -43,54 +45,54 @@ public class LoginFragment extends Fragment {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!isPasswordValid(passwordEditText.getText(),loginEditText.getText())) {
-                    passwordTextInput.setError(getString(R.string.error_password));
-                } else {
-                    passwordTextInput.setError(null); // Clear the error
+                final String BASE_URL = "http://10.0.2.2:8080/api/user/";
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl(BASE_URL)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+                UserService userService = retrofit.create(UserService.class);
+                Call<User> call = userService.getUser(loginEditText.getText().toString());
+                call.enqueue(new Callback<User>() {
+                    @Override
+                    public void onResponse(Call<User> call, Response<User> response) {
+                        if (response.body() != null && response.body().getParol().equals(passwordEditText.getText().toString())) {
+                            passwordTextInput.setError(null); // Clear the error
+                            ((NavigationHost) getActivity()).navigateTo(new FlatsFragment(), false); // Navigate to the next Fragment
+                        } else {
+                            passwordTextInput.setError(getString(R.string.error_password));
+                        }
+                    }
 
-                    ((NavigationHost) getActivity()).navigateTo(new FlatsFragment(), false); // Navigate to the next Fragment
-                }
+                    @Override
+                    public void onFailure(Call<User> call, Throwable t) {
+                        passwordTextInput.setError(getString(R.string.error_username));
+                    }
+                });
             }
         });
-
-
         // Clear the error once more than 8 characters are typed.
-        passwordEditText.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                if (isPasswordValid(passwordEditText.getText(),loginEditText.getText())) {
-                    passwordTextInput.setError(null); //Clear the error
-                }
-                return false;
-            }
-        });
+//        passwordEditText.setOnKeyListener(new View.OnKeyListener() {
+//            @Override
+//            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+//                if (isPasswordValid(passwordEditText.getText(),loginEditText.getText())) {
+//                    passwordTextInput.setError(null); //Clear the error
+//                }
+//                return false;
+//            }
+//        });
         return view;
     }
 
-    // "isPasswordValid" from "Navigate to the next Fragment" section method goes here
-    private boolean isPasswordValid(@Nullable Editable pass,Editable login) {
-        final boolean[] state = new boolean[1];
-        final String BASE_URL = "http://127.0.0.1/api/user/";
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        UserService userService = retrofit.create(UserService.class);
-        Call<User> call = userService.getUser(login.toString());
-        call.enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                if (response.body().getParol() == pass.toString()) state[0] =true;
-                else state[0] =false;
-            }
 
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                state[0] = false;
-            }
-        });
-        //return text != null && text.length() >= -1;
-        return state[0];
-    }
+
+
+    // "isPasswordValid" from "Navigate to the next Fragment" section method goes here
+//    private boolean isPasswordValid(@Nullable Editable pass,Editable login) {
+//
+//        System.out.println("blin");
+//        System.out.println(state[0]);
+//        //return text != null && text.length() >= -1;
+//        return state[0];
+//    }
 }
 

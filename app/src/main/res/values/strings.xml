@@ -8,7 +8,8 @@
     <string name="form_house">Дом</string>
     <string name="button_image">Image</string>
     <string name="button_cancel">Cancel</string>
-    <string name="error_password">Password must contain at least 8 characters.</string>
+    <string name="error_password">Wrong password</string>
+    <string name="error_username">Wrong username</string>
     <string name="filter_title">Filter</string>
     <string name="search_title">Search</string>
     <string name="product_title">Title</string>

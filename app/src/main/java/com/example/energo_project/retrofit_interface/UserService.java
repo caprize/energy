@@ -10,6 +10,6 @@ import retrofit2.http.Path;
 public interface UserService {
     @POST("list")
     Call<User> loadRepo();
-    @GET("user/{login}")
+    @GET("{login}")
     Call<User> getUser(@Path("login") String login);
 }
