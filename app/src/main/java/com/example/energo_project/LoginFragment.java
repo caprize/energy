@@ -20,6 +20,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -31,10 +33,10 @@ public class LoginFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.login_fragment, container, false);
-        final TextInputLayout passwordTextInput = view.findViewById(R.id.password_text_input);
-        final TextInputEditText passwordEditText = view.findViewById(R.id.password_edit_text);
-        final TextInputLayout loginTextInput = view.findViewById(R.id.login_text_input);
-        final TextInputEditText loginEditText = view.findViewById(R.id.login_edit_text);
+        final TextInputLayout passwordTextInput = view.findViewById(R.id.password_input);
+        final TextInputEditText passwordEditText = view.findViewById(R.id.password_edit);
+        final TextInputLayout loginTextInput = view.findViewById(R.id.username_input);
+        final TextInputEditText loginEditText = view.findViewById(R.id.username_edit);
         MaterialButton nextButton = view.findViewById(R.id.next_button);
 
         // Set an error if the password is less than 8 characters.
@@ -67,16 +69,28 @@ public class LoginFragment extends Fragment {
 
     // "isPasswordValid" from "Navigate to the next Fragment" section method goes here
     private boolean isPasswordValid(@Nullable Editable pass,Editable login) {
-        final String BASE_URL = "http://api.example.com/";
+        final boolean[] state = new boolean[1];
+        final String BASE_URL = "http://127.0.0.1/api/user/";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         UserService userService = retrofit.create(UserService.class);
-        Call<User> call = userService.getUser();
-        return true;
-        //call.enqueue();
+        Call<User> call = userService.getUser(login.toString());
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response.body().getParol() == pass.toString()) state[0] =true;
+                else state[0] =false;
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                state[0] = false;
+            }
+        });
         //return text != null && text.length() >= -1;
+        return state[0];
     }
 }
 
