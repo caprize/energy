@@ -39,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_email"
-                android:textColorHint=""
+
                 app:startIconDrawable="@drawable/email"
                 app:startIconTint="@color/colorFooter"
                 app:boxStrokeWidth="0dp"
@@ -72,11 +72,11 @@
             android:background="@drawable/blue_border_rounded_cornwe">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/pass"
+                android:id="@+id/password_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_password"
-                android:textColorHint=""
+
                 app:startIconDrawable="@drawable/password"
                 app:startIconTint="@color/colorFooter"
                 app:endIconMode="password_toggle"
@@ -103,6 +103,7 @@
         </RelativeLayout>
 
         <Button
+            android:id="@+id/next_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -119,12 +120,12 @@
             android:textSize="14sp" />
     </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:orientation="vertical"
-            android:background="@color/colorFooter">
-        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="@color/colorFooter">
+    </LinearLayout>
 
 </RelativeLayout>
