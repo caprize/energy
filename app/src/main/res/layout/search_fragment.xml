@@ -9,62 +9,184 @@
 
     android:background="@color/productGridBackgroundColor"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:background="@color/colorFooter">
+
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="100dp"
+                android:layout_gravity="left"
+                android:src="@drawable/logo3"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <Button
+                android:layout_width="92dp"
+                android:layout_height="47dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="26dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/blue_fill__rounded_color"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:paddingTop="7dp"
+                android:paddingBottom="14dp"
+                android:paddingRight="20dp"
+                android:text="назад"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+
+            />
+        </FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginRight="28dp"
+            android:layout_marginBottom="18dp"
+            android:fontFamily="@font/Roboto_Regular"
+            android:text="Поиск по лицевым счетам"
+            android:textAllCaps="true"
+            android:textColor="@color/colorSearch"
+            android:textSize="24sp">
+        </TextView>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/blue_border_cornwe">
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/townField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/form_town"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:endIconMode="clear_text">
+            app:endIconMode="clear_text"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:textCursorDrawable="@drawable/cursor_color"
+                android:textSize="15sp"
+                />
         </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/blue_border_cornwe"
+            android:layout_marginTop="6dp"
+            >
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/streetField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/form_street"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:endIconMode="clear_text">
+            app:endIconMode="clear_text"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:textCursorDrawable="@drawable/cursor_color"
+                android:textSize="15sp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/blue_border_cornwe"
+            android:layout_marginTop="6dp">
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/HouseField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/form_house"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:endIconMode="clear_text">
+            app:endIconMode="clear_text"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:textCursorDrawable="@drawable/cursor_color"
+                android:textSize="15sp"
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
+        </RelativeLayout>
+
         <RelativeLayout
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/search_button"
                 style="@style/Widget.Button"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:gravity="center_vertical"
-                android:text="@string/button_next" />
+                android:layout_marginRight="150dp"
+                android:text="@string/button_next"
+                android:gravity="center"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/search_button2"
+                style="@style/Widget.Button"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12dp"
+                android:gravity="center"
+                android:text="Сбросить" />
 
         </RelativeLayout>
     </LinearLayout>

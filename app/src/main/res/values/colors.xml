@@ -13,7 +13,8 @@
 
     <color name="toolbarIconColor">#FFFFFF</color>
     <color name="loginPageBackgroundColor">#FFFFFF</color>
-    <color name="productGridBackgroundColor">#FFFFFF</color>
+    <color name="productGridBackgroundColor">#ecf4fe</color>
 
     <color name="colorFooter">#1566e0</color>
+    <color name="colorSearch">#1f2327</color>
 </resources>
