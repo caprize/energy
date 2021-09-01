@@ -20,6 +20,7 @@
             android:background="@drawable/blue_bg">
 
             <ImageView
+                android:contentDescription="@string/description"
                 android:layout_width="370dp"
                 android:layout_height="270dp"
                 android:layout_gravity="center_horizontal"
@@ -29,34 +30,41 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="62dp"
+            android:layout_marginStart="62dp"
             android:layout_marginTop="36.7dp"
-            android:layout_marginRight="62dp"
-            android:background="@drawable/blue_border_rounded_cornwe">
+            android:layout_marginEnd="62dp"
+            android:background="@drawable/blue_border_rounded_cornwe"
+            >
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/username_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:hint="@string/hint_email"
 
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:startIconDrawable="@drawable/email"
                 app:startIconTint="@color/colorFooter"
                 app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="0dp">
+                app:boxStrokeWidthFocused="0dp"
+
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/username_edit"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/poppins_regular"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
                     android:textCursorDrawable="@drawable/cursor_color"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -76,27 +84,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_password"
-
-                app:startIconDrawable="@drawable/password"
-                app:startIconTint="@color/colorFooter"
-                app:endIconMode="password_toggle"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="0dp">
+                app:boxStrokeWidthFocused="0dp"
+                app:endIconMode="password_toggle"
+                app:startIconDrawable="@drawable/password"
+                app:startIconTint="@color/colorFooter">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/password_edit"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/poppins_regular"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:paddingLeft="17dp"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
                     android:textCursorDrawable="@drawable/cursor_color"
-                    android:textSize="12sp"
-                    />
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -115,7 +119,7 @@
             android:gravity="center"
             android:paddingTop="14dp"
             android:paddingBottom="14dp"
-            android:text="Войти"
+            android:text="@string/button_enter"
             android:textColor="#ffffff"
             android:textSize="14sp" />
     </LinearLayout>
